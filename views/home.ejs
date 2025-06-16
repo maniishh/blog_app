@@ -1,0 +1,17 @@
+  <%- include("partials/navbar") %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Blog Posts</h1>
+  <a href="/compose">Compose New Post</a>
+  <ul>
+    <% posts.forEach((post, index) => { %>
+      <li><a href="/posts/<%= index %>"><%= post.title %></a></li>
+    <% }) %>
+  </ul>
+</body>
+</html>
