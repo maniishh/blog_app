@@ -51,7 +51,7 @@ Below is a screenshot of the project structure:
 ![Home Page Screenshot](public/images/Post.png)
 
 
-> 📸 Make sure this image is placed in the root of the repository or update the path accordingly.
+ 
 
 ---
 
