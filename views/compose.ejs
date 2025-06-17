@@ -1,14 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Compose</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>New Post</h1>
-  <form action="/compose" method="POST">
-    <input type="text" name="title" placeholder="Post Title" required>
-    <textarea name="content" placeholder="Post Content" required></textarea>
-    <button type="submit">Publish</button>
-  </form>
+<body class="bg-gradient-to-r from-purple-300 via-pink-200 to-blue-300 min-h-screen flex items-center justify-center">
+
+  <div class="bg-white shadow-lg rounded-lg p-8 max-w-xl w-full">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">📝 Create a New Blog Post</h1>
+
+    <form action="/compose" method="POST" class="space-y-4">
+  
+      <input 
+        type="text" 
+        name="title" 
+        placeholder="Post Title" 
+        required
+        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400 transition"
+      >
+
+       
+      <textarea 
+        name="content" 
+        placeholder="Write your content here..." 
+        required
+        rows="8"
+        class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+      ></textarea>
+
+    
+      <button 
+        type="submit" 
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md transition duration-200"
+      >
+        📤 Publish Post
+      </button>
+    </form>
+  </div>
+
 </body>
 </html>
+
+
+
