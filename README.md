@@ -46,7 +46,7 @@ blog-app/
 
 Below is a screenshot of the project structure:
 
-![Home Page Screenshot](public/images/HomePage.png)
+![Home Page Screenshot](public/images/Home.png)
 ![Home Page Screenshot](public/images/ComposePage.png)
 ![Home Page Screenshot](public/images/Post.png)
 
