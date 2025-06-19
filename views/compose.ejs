@@ -5,47 +5,42 @@
   <title>Compose</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
- 
+  <!-- Tailwind CSS -->
   <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
- 
   <style>
     body {
       font-family: 'sans-serif';
     }
   </style>
-
- 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.dots.min.js"></script>
 </head>
-<body class="m-0 p-0 overflow-hidden">
+<body class="m-0 p-0 overflow-hidden text-white relative">
 
- 
-  <div id="vanta-compose-bg" class="min-h-screen flex items-center justify-center px-4">
+  <!-- ✅ Background Image -->
+  <!-- <img src="images/comp.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover z-0" /> -->
 
-     
-    <div class="bg-white/0 border border-white/0 backdrop-blur-sm shadow-lg rounded-xl p-8 max-w-xl w-full">
-      <h1 class="text-3xl font-bold text-center text-white mb-6">📝 Create a New Blog Post</h1>
+  <!-- 🔵 Foreground Content with backdrop blur and form -->
+  <div id="vanta-compose-bg" class="relative z-10 min-h-screen flex items-center justify-center px-4">
+    <div class="bg-white/0 border border-white/20 backdrop-blur-sm shadow-lg rounded-xl p-8 max-w-xl w-full text-black">
+      <h1 class="text-3xl font-bold text-center mb-6">📝 Create a New Blog Post</h1>
 
-       
       <form action="/compose" method="POST" enctype="multipart/form-data" class="space-y-4">
-
-      
+        <!-- 📝 Title -->
         <input 
           type="text" 
           name="title" 
           placeholder="Post Title" 
           required
-          class="w-full px-4 py-3 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-white bg-transparent placeholder-white/70"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-300 text-black bg-transparent placeholder-gray-500"
         >
- 
+
+        <!-- 📌 Content -->
         <textarea 
           name="content" 
           placeholder="Write your content here..." 
           required
           rows="8"
-          class="w-full px-4 py-3 border border-white/30 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 text-white bg-transparent placeholder-white/70 resize-none"
+          class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 text-black bg-transparent placeholder-gray-500 resize-none"
         ></textarea>
 
         <!-- 📷 Image Upload -->
@@ -53,7 +48,7 @@
           type="file" 
           name="image" 
           accept="image/*"
-          class="w-full text-white file:bg-blue-600 file:text-white file:px-4 file:py-2 file:rounded-md file:border-none border border-white/30 rounded-md bg-transparent backdrop-blur-sm placeholder-white/70"
+          class="w-full text-gray-700 file:bg-blue-600 file:text-white file:px-4 file:py-2 file:rounded-md file:border-none border border-gray-300 rounded-md bg-transparent placeholder-gray-500"
         >
 
         <!-- 🔘 Submit Button -->
@@ -66,22 +61,6 @@
       </form>
     </div>
   </div>
-
-  <!-- 🔵 Vanta Background Script -->
-  <script>
-    VANTA.DOTS({
-      el: "#vanta-compose-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0xffffff,
-      backgroundColor: 0x0f172a
-    });
-  </script>
 
 </body>
 </html>
