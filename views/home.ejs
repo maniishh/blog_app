@@ -3,44 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>All Blog Posts</title>
+  <title>My Blog</title>
 
   <link href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 text-gray-900">
 
-  <!-- Navbar -->
-  <nav class="bg-blue-600 p-4">
-    <div class="max-w-6xl mx-auto flex justify-between items-center text-white">
-      <a href="/" class="text-2xl font-bold">PostNest</a>
-      <a href="/" class="hover:underline">🏠 Home</a>
+  <!-- Vanta.NET and Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+
+  <style>
+    #vanta-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+
+<body class="text-gray-900 min-h-screen transition-colors duration-300">
+ 
+  <div id="vanta-bg"></div>
+
+  
+  <nav class="fixed top-0 left-0 right-0 bg-blue-600 shadow-lg z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-white">PostNest</a>
+
+      <div class="flex gap-4 items-center">
+        <a href="/" class="text-white hover:underline">Home</a>
+
+        <% if (user) { %>
+          <span class="text-white font-medium">👤 <%= user.username %></span>
+          <a href="/all-posts" class="bg-white text-blue-600 px-3 py-1 rounded hover:bg-blue-100 font-medium">View Posts</a>
+          <a href="/logout" class="text-white hover:underline">Logout</a>
+        <% } else { %>
+          <a href="/login" class="text-white hover:underline">Login</a>
+          <a href="/register" class="text-white hover:underline">Register</a>
+        <% } %>
+      </div>
     </div>
   </nav>
 
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold text-center mb-6">📖 All Blog Posts</h1>
 
-    <% if (posts.length === 0) { %>
-      <p class="text-center text-gray-600">No posts available.</p>
-    <% } else { %>
-      <ul class="space-y-6">
-        <% posts.forEach(function(post, index) { %>
-          <li class="bg-white shadow-md rounded-lg p-6 hover:bg-blue-50 transition">
-            <a href="/posts/<%= index %>" class="text-2xl font-semibold text-blue-600 hover:underline block mb-2">
-              <%= post.title %>
-            </a>
-            <% if (post.content) { %>
-              <p class="text-gray-700">
-                <%= post.content.length > 200 ? post.content.substring(0, 200) + '...' : post.content %>
-              </p>
-            <% } else { %>
-              <p class="text-gray-500 italic">No content available.</p>
-            <% } %>
-          </li>
-        <% }) %>
-      </ul>
-    <% } %>
-  </main>
+  <section class="pt-20 relative h-[485px] flex items-center justify-center text-center">
+    <div class="bg-black bg-opacity-10 w-full h-full absolute top-0 left-0 z-0"></div>
+    <div class="relative z-10 px-6">
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Welcome to My Blog</h1>
+      <p class="text-lg text-white mb-6">Write, read, and discover amazing stories.</p>
+
+      <% if (user) { %>
+        <a href="/compose" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg">
+          ✍️ Compose New Post
+        </a>
+      <% } else { %>
+        <a href="/login" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg">
+          🔐 Login to Compose
+        </a>
+      <% } %>
+
+
+    </div>
+  </section>
+  <script>
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x260c58,
+      backgroundColor: 0x160d26
+    });
+  </script>
 
 </body>
 </html>
