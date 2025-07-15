@@ -1,10 +1,10 @@
-# 📝 Blog App
+# 📝 Blog App 
 
 A simple and dynamic blog web application built using **Node.js**, **Express.js**, and **EJS**. Users can compose, view, and edit blog posts. Data is rendered server-side using EJS templates.
 
 ---
 
-## 📁 Project Structur
+## 📁 Project Structure
 ```
 blog-app/
 ├── node_modules/ 
